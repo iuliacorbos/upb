@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chestionar lider carismatic</title>
+  <script>
+    function getClassification() {
+      var answer1 = getSelectedAnswer('q1');
+      var answer2 = getSelectedAnswer('q2');
+      var answer3 = getSelectedAnswer('q3');
+      
+      // Perform classification based on the answers
+      var classificationResult = classify(answer1, answer2, answer3);
+      
+      document.getElementById("result").innerHTML = classificationResult;
+    }
+    
+    function getSelectedAnswer(questionName) {
+      var selectedAnswer = '';
+      var radios = document.getElementsByName(questionName);
+      
+      for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+          selectedAnswer = radios[i].value;
+          break;
+        }
+      }
+      
+      return selectedAnswer;
+    }
+    
+    function classify(answer1, answer2, answer3) {
+      if (answer1 === "yes" && answer2 === "yes" && answer3 === "no") {
+        return "70% esti un lider carismatic";
+      } else if (answer1 === "no" && answer2 === "yes" && answer3 === "yes") {
+        return "Result 70% esti un lider carismatic";
+      } else if (answer1 === "yes" && answer2 === "no" && answer3 === "no") {
+        return "Result 70% esti un lider carismatic";
+      } else {
+        return "100% lider carsimatic";
+      }
+    }
+  </script>
+</head>
+<body>
+
+    <html>
+        <head>
+        <style>
+        body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        }
+         
+        .bg-image {
+        background-image: url("leader.jpg");
+        background-color: #cccccc;
+        height: 630px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        }
+         
+        .bg-text {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        }
+         
+        </style>
+        </head>
+        <body>
+        <div class="bg-image">
+        <div class="bg-text">
+        <h1 style="Charismatic Leader"</h1>
+        
+        </div>
+        </div>
+         
+        <p></p>
+        </body>
+        </html>
+        
+  <h1>Chestionar lider carismatic</h1>
+  
+  <form>
+    <h2> iti place sa ii ajuti pe ceilalti:</h2>
+    <label for="q1-yes">
+      <input type="radio" name="q1" id="q1-yes" value="yes"> Yes
+    </label>
+    <label for="q1-no">
+      <input type="radio" name="q1" id="q1-no" value="no"> No
+    </label>
+    
+    <h2>iti place sa fii jovial:</h2>
+    <label for="q2-yes">
+      <input type="radio" name="q2" id="q2-yes" value="yes"> Yes
+    </label>
+    <label for="q2-no">
+      <input type="radio" name="q2" id="q2-no" value="no"> No
+    </label>
+    
+    <h2>imparti tascurile oamenilor:</h2>
+    <label for="q3-yes">
+      <input type="radio" name="q3" id="q3-yes" value="yes"> Yes
+    </label>
+    <label for="q3-no">
+      <input type="radio" name="q3" id="q3-no" value="no"> No
+    </label>
+  </form>
+  
+  <button onclick="getClassification()">Classify</button>
+  
+  <p id="result"></p>
+  
+
+</body>
+</html>
